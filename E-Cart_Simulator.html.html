@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/5465/5465858.png" type="image/icon type">
+    <style>
+        body{
+           background-color:darksalmon;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+        .box {
+            background-color:antiquewhite;
+            padding: 50px;
+            height: 600px;
+            border-radius: 10px;
+            box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            text-align: center;
+            overflow-y: auto;
+        }
+        .button-container button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .textbox {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .textbox input {
+            width: 50%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        .textbox input:focus {
+            border-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Add or Remove Cart</h2>
+    </center>
+    <div class="container">
+        <div class="box">
+            <form id="CartForm">
+                <div id="inputContainer" class="textbox">
+                    <input type="text" id="cartitems" placeholder="Add Your Cart Item" required>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="add1" onclick="AddToCart()">Add Cart</button>
+                    <button type="button" id="remove1" onclick="RemoveAndReplaceInput('cartitems')">Remove Cart</button>
+                </div>
+                <br><br>
+                <div id="inputContainer1" class="textbox">
+                    <input type="text" id="cartitems1" placeholder="Add the Price of Cart Items" required>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="add2" onclick="AddToCart()">Add Cart</button>
+                    <button type="button" id="remove2" onclick="RemoveAndReplaceInput('cartitems1')">Remove Cart</button>
+                </div>
+                <br><br>
+                <div class="textbox">
+                    <input type="text" id="cartitems2" placeholder="Calculate Total" readonly>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="total" onclick="CalculateTotal()">Calculate Total</button>
+                </div><br>
+                <div class="button-container">
+                    <button type="button" id="total" onclick="ClearCart()">Clear Cart</button>
+                </div><br>
+            </form>
+            <div id="output">
+                <h3>Cart Items:</h3>
+                <ul id="cartList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cartItems = [];
+
+        function AddToCart() {
+            const item = document.getElementById('cartitems').value;
+            const price = document.getElementById('cartitems1').value;
+
+            if (item && price) {
+                cartItems.push({ item, price });
+                displayCart();
+            } else {
+                alert("Please enter both item and price.");
+            }
+        }
+        function RemoveAndReplaceInput(inputId) {
+            const inputContainer = document.getElementById(inputId === 'cartitems' ? 'inputContainer' : 'inputContainer1');
+            const oldInput = document.getElementById(inputId);
+            if (oldInput) {
+                inputContainer.removeChild(oldInput);
+            }
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.id = inputId;
+            newInput.placeholder = inputId === 'cartitems' ? 'Add Your Cart Item' : 'Add the Price of Cart Items';
+            inputContainer.appendChild(newInput);
+        }
+
+        function ClearCart() {
+            cartItems.length = 0;
+            displayCart();
+        }
+
+        function CalculateTotal() {
+            let total = 0;
+            cartItems.forEach(cartItem => {
+                total += parseFloat(cartItem.price) || 0;
+            });
+
+            document.getElementById('cartitems2').value = `Total: $${total.toFixed(2)}`;
+        }
+
+        function displayCart() {
+            const cartList = document.getElementById('cartList');
+            cartList.innerHTML = '';
+
+            cartItems.forEach(cartItem => {
+                const listItem = document.createElement('li');
+                listItem.style.listStyle=`none`;
+                listItem.textContent = `${cartItem.item}: $${cartItem.price}`;
+                cartList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
