@@ -36,7 +36,7 @@ E-Cart Simulator/
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone <repository-url>
+   https://github.com/Bharath07T/E-Cart-Simulator.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -47,10 +47,11 @@ E-Cart Simulator/
 ## Screenshots
 
 ### Login Page
-![Login Page](https://cdn-icons-png.flaticon.com/128/5444/5444712.png)
+[Login-Page](https://github.com/user-attachments/assets/6f5c7828-7978-43f2-8dd3-7f94fcc2f431)
+
 
 ### Shopping Cart Page
-![Shopping Cart Page](https://cdn-icons-png.flaticon.com/128/5465/5465858.png)
+[E-Cart_Simulator](https://github.com/user-attachments/assets/1c9978cb-0182-4bfb-8640-aa7349d7ce72)
 
 ## How It Works
 
