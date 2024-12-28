@@ -68,9 +68,6 @@ E-Cart Simulator/
 - Enhance the UI with animations and advanced styling.
 - Create a database integration for persistent storage of cart items.
 
-## License
-This project is open source and available under the [MIT License](LICENSE).
-
 ## Contact
 For any inquiries, please contact:
 - Name: Bharath
