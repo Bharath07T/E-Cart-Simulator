@@ -47,11 +47,12 @@ E-Cart Simulator/
 ## Screenshots
 
 ### Login Page
-[Login-Page](https://github.com/user-attachments/assets/6f5c7828-7978-43f2-8dd3-7f94fcc2f431)
+![Login_Page](https://github.com/user-attachments/assets/74ef34b4-4aee-4f70-aa65-b0e4cf422bcd)
 
 
 ### Shopping Cart Page
-[E-Cart_Simulator](https://github.com/user-attachments/assets/1c9978cb-0182-4bfb-8640-aa7349d7ce72)
+![E-Cart_simulator](https://github.com/user-attachments/assets/0db7ecb0-f384-4805-82df-4cf9da865ff9)
+
 
 ## How It Works
 
